@@ -1,0 +1,6 @@
+﻿  Program.c
+c:\users\bnn678\source\repos\cis308 lab4\cis308 lab4\program.c(37): warning C4013: 'malloc' undefined; assuming extern returning int
+c:\users\bnn678\source\repos\cis308 lab4\cis308 lab4\program.c(37): warning C4047: '=': 'Student *' differs in levels of indirection from 'int'
+c:\users\bnn678\source\repos\cis308 lab4\cis308 lab4\program.c(49): warning C4013: 'atoi' undefined; assuming extern returning int
+c:\users\bnn678\source\repos\cis308 lab4\cis308 lab4\program.c(59): warning C4013: 'free' undefined; assuming extern returning int
+  CIS308 Lab4.vcxproj -> C:\Users\bnn678\source\repos\CIS308 Lab4\Debug\CIS308 Lab4.exe

@@ -1,0 +1,6 @@
+﻿  Source.c
+c:\users\bnn678\source\repos\cis308 lab2\cis308 lab2\source.c(8): warning C4018: '<': signed/unsigned mismatch
+c:\users\bnn678\source\repos\cis308 lab2\cis308 lab2\source.c(10): warning C4018: '<': signed/unsigned mismatch
+c:\users\bnn678\source\repos\cis308 lab2\cis308 lab2\source.c(6): warning C4101: 'i': unreferenced local variable
+c:\users\bnn678\source\repos\cis308 lab2\cis308 lab2\source.c(22): warning C4018: '<': signed/unsigned mismatch
+  CIS308 Lab2.vcxproj -> C:\Users\bnn678\source\repos\CIS308 Lab2\Debug\CIS308 Lab2.exe

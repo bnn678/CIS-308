@@ -1,0 +1,5 @@
+﻿  Source.c
+c:\users\bnn678\source\repos\cis308 project1\cis308 project1\source.c(14): warning C4005: '_CRT_SECURE_NO_WARNINGS': macro redefinition
+  c:\users\bnn678\source\repos\cis308 project1\cis308 project1\source.c(14): note: command-line arguments:  see previous definition of '_CRT_SECURE_NO_WARNINGS'
+c:\users\bnn678\source\repos\cis308 project1\cis308 project1\source.c(79): warning C4013: 'atoi' undefined; assuming extern returning int
+  CIS308 Project1.vcxproj -> C:\Users\bnn678\source\repos\CIS308 Project1\Debug\CIS308 Project1.exe
