@@ -1,1 +1,8 @@
-﻿  CIS 308 Exam 1 Review.vcxproj -> C:\Users\Brandon Shaver\Documents\GitHub\CIS 308\ExamReview1\Debug\CIS 308 Exam 1 Review.exe
+﻿  Source.c
+c:\users\brandon shaver\documents\github\cis-308\examreview1\cis 308 exam 1 review\source.c(280): warning C4047: '=': 'char *' differs in levels of indirection from 'char (*)[7]'
+c:\users\brandon shaver\documents\github\cis-308\examreview1\cis 308 exam 1 review\source.c(153): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'int *'
+c:\users\brandon shaver\documents\github\cis-308\examreview1\cis 308 exam 1 review\source.c(154): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'int *'
+c:\users\brandon shaver\documents\github\cis-308\examreview1\cis 308 exam 1 review\source.c(155): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'int **'
+c:\users\brandon shaver\documents\github\cis-308\examreview1\cis 308 exam 1 review\source.c(158): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'int *'
+c:\users\brandon shaver\documents\github\cis-308\examreview1\cis 308 exam 1 review\source.c(195): warning C4101: 'phone2': unreferenced local variable
+  CIS 308 Exam 1 Review.vcxproj -> C:\Users\Brandon Shaver\Documents\GitHub\CIS-308\ExamReview1\Debug\CIS 308 Exam 1 Review.exe
