@@ -116,6 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="bst.c" />
+    <ClCompile Include="io.c" />
     <ClCompile Include="proj2.c" />
   </ItemGroup>
   <ItemGroup>

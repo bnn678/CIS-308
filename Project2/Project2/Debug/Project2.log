@@ -1,7 +1,2 @@
 ﻿  proj2.c
-c:\users\brandon shaver\documents\github\cis-308\project2\project2\io.h(8): warning C4101: 'return_num': unreferenced local variable
-c:\users\brandon shaver\documents\github\cis-308\project2\project2\io.h(30): warning C4101: 'num': unreferenced local variable
-c:\users\brandon shaver\documents\github\cis-308\project2\project2\bst.h(7): error C2371: 'BST_Node': redefinition; different basic types
-  c:\users\brandon shaver\documents\github\cis-308\project2\project2\bst.h(7): note: see declaration of 'BST_Node'
-  bst.c
-  Generating Code...
+  Project2.vcxproj -> C:\Users\Brandon Shaver\Documents\GitHub\CIS-308\Project2\Debug\Project2.exe

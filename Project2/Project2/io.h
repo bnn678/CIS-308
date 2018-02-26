@@ -1,38 +1,20 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "bst.h"
+/***********************************************************************
+* Name: Brandon Shaver
+* Date: 2/25/2018
+* Assignment: Project 2 - Sequence and Order validation
+************************************************************************
+* The program is designed to create a BST based on user input.
+* It takes in numbers to add to BST.
+* The user can test if a nod is in the BST or
+* print an Inorder Traversal of the BST.
+***********************************************************************/
 
-int GetProgramState()
-{
-	char state;
-	int return_num;
+int GetProgramState();
 
-	printf("Enter [i]nsert, [s]earch, inorder [t]ransversal, or [q]uit: ");
-	state = fgetc(stdin);
+int GetInsertionNum();
 
-	switch (state)
-	{
-		case ('q'):
-			return 0;
-		case ('i'):
-			return 1;
-		case ('s'):
-			return 2;
-		case ('t'):
-			return 3;
-	}
+int GetSearchNum();
 
-	return state;
-}
+void DisplaySearchResult(bool success);
 
-int GetInsertionNum()
-{
-	int num;
-	char buffer[5];
-
-	printf("Enter a number to insert: ");
-	fgets(buffer, 4, stdin);
-
-	return atoi(buffer);
-}
-
+void DisplayTraversalString(char* traversal_string);

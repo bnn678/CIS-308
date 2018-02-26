@@ -21,6 +21,9 @@
     <ClCompile Include="bst.c">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="io.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bst.h">
