@@ -9,7 +9,6 @@
 * print an Inorder Traversal of the BST.
 ***********************************************************************/
 
-
 #include <stdbool.h>
 
 typedef struct BST_Node {
@@ -18,10 +17,10 @@ typedef struct BST_Node {
 	struct BST_Node* right_node;
 } BST_Node;
 
-void AddNode(BST_Node head_node, int key_to_add);
+void AddNode(BST_Node* curr_node, int key_to_add);
 
-bool Search(BST_Node head_node, int key_to_find);
+bool Search(BST_Node curr_node, int key_to_find);
 
-void InorderTraversal(BST_Node head_node, char* output);
+void InorderTraversal(BST_Node curr_node, char* output, char** output_pointer);
 
-char* GetStringInorderTraversal(BST_Node head_node);
+void FreeBST(BST_Node* curr_node);
