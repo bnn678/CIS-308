@@ -10,6 +10,10 @@
 ***********************************************************************/
 
 #include <stdbool.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+#pragma warning(disable:4996)
 
 typedef struct BST_Node {
 	int key;
@@ -21,6 +25,6 @@ void AddNode(BST_Node* curr_node, int key_to_add);
 
 bool Search(BST_Node curr_node, int key_to_find);
 
-void InorderTraversal(BST_Node curr_node, char* output, char** output_pointer);
+void InorderTraversal(BST_Node curr_node, char* output);
 
 void FreeBST(BST_Node* curr_node);

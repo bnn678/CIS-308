@@ -1,8 +1,11 @@
 ﻿  proj2.c
-c:\users\brandon shaver\documents\github\cis-308\project2\project2\proj2.c(63): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[5]'
-c:\users\brandon shaver\documents\github\cis-308\project2\project2\proj2.c(63): warning C4024: 'GetString': different types for formal and actual parameter 1
-c:\users\brandon shaver\documents\github\cis-308\project2\project2\proj2.c(73): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[5]'
-c:\users\brandon shaver\documents\github\cis-308\project2\project2\proj2.c(73): warning C4024: 'GetString': different types for formal and actual parameter 1
-c:\users\brandon shaver\documents\github\cis-308\project2\project2\proj2.c(27): warning C4716: 'GetString': must return a value
-c:\users\brandon shaver\documents\github\cis-308\project2\project2\proj2.c(164): warning C4715: 'Search': not all control paths return a value
+  io.c
+c:\users\brandon shaver\documents\github\cis-308\project2\project2\io.c(25): warning C4013: 'calloc' undefined; assuming extern returning int
+c:\users\brandon shaver\documents\github\cis-308\project2\project2\io.c(56): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[5]'
+c:\users\brandon shaver\documents\github\cis-308\project2\project2\io.c(56): warning C4024: 'GetString': different types for formal and actual parameter 1
+c:\users\brandon shaver\documents\github\cis-308\project2\project2\io.c(58): warning C4013: 'atoi' undefined; assuming extern returning int
+c:\users\brandon shaver\documents\github\cis-308\project2\project2\io.c(66): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[5]'
+c:\users\brandon shaver\documents\github\cis-308\project2\project2\io.c(66): warning C4024: 'GetString': different types for formal and actual parameter 1
+  Generating Code...
+c:\users\brandon shaver\documents\github\cis-308\project2\project2\io.c(20): warning C4716: 'GetString': must return a value
   Project2.vcxproj -> C:\Users\Brandon Shaver\Documents\GitHub\CIS-308\Project2\Debug\Project2.exe

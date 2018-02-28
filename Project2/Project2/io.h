@@ -9,12 +9,18 @@
 * print an Inorder Traversal of the BST.
 ***********************************************************************/
 
+#include <stdbool.h>
+#include <stdio.h>
+#include <string.h>
+
+char* GetString(char* output);
+
 int GetProgramState();
 
 int GetInsertionNum();
 
 int GetSearchNum();
 
-void DisplaySearchResult(bool success);
+void DisplaySearchResult(bool success, int num);
 
 void DisplayTraversalString(char* traversal_string);

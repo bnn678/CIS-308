@@ -9,12 +9,7 @@
 * print an Inorder Traversal of the BST.
 ***********************************************************************/
 
-
-#include <stdlib.h>
-#include <stdio.h>
 #include "bst.h"
-
-#pragma warning(disable:4996)
 
 // BST FUNCTIONS:
 
@@ -78,11 +73,11 @@ bool Search(BST_Node curr_node, int key_to_find)
 	}
 }
 
-void InorderTraversal(BST_Node curr_node, char* output, char** output_pointer)
+void InorderTraversal(BST_Node curr_node, char* output)
 {
 	if (curr_node.left_node != 0)
 	{
-		InorderTraversal(*(curr_node.left_node), output, output_pointer);
+		InorderTraversal(*(curr_node.left_node), output);
 	}
 
 	int length = strlen(output);
@@ -93,7 +88,7 @@ void InorderTraversal(BST_Node curr_node, char* output, char** output_pointer)
 
 	if (curr_node.right_node != 0)
 	{
-		InorderTraversal(*(curr_node.right_node), output, output_pointer);
+		InorderTraversal(*(curr_node.right_node), output);
 	}
 }
 

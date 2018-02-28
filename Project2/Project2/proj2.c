@@ -1,15 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <string.h>
-/*
 #include "io.h"
 #include "bst.h"
-*/
-#pragma warning(disable:4996)
-
-
-
 
 enum PROGRAM_STATE { QUIT, INSERT, SEARCH, TRAVERSE};
 
@@ -18,7 +8,8 @@ int main()
 {
 	// Varibles:
 	enum PROGRAM_STATE program_state;
-	BST_Node head_node = { 0 };
+	//BST_Node head_node = { 0 };
+	BST_Node* head_node = (BST_Node *)calloc(1, sizeof(BST_Node));
 	int num;
 
 	// Controller Loop:
@@ -29,25 +20,25 @@ int main()
 
 		if (program_state == QUIT)
 		{
-			FreeBST(&head_node);
+			FreeBST(head_node);
 			return 0;
 		}
 		else if (program_state == INSERT)
 		{
 			num = GetInsertionNum();
-			AddNode(&head_node, num);
+			AddNode(head_node, num);
 		}
 		else if (program_state == SEARCH)
 		{
 			num = GetSearchNum();
-			DisplaySearchResult(Search(head_node, num));
+			DisplaySearchResult(Search(*head_node, num), num);
 		}
 		else if (program_state == TRAVERSE)
 		{
 			//char buffer[100] = { 0 };
 			char* traversal_string = (char *) calloc(100, sizeof(char));
 
-			InorderTraversal(head_node, traversal_string, &traversal_string);
+			InorderTraversal(*head_node, traversal_string);
 			DisplayTraversalString(traversal_string);
 
 			free(traversal_string);
