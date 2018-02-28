@@ -15,7 +15,7 @@
 
 /***********************************************************************
 * Description: Adds a node to the BST
-* Precondition:
+* Precondition: Parameters are defined and initilized
 * Postcondition: Node will be added to BST
 ***********************************************************************/
 void AddNode(BST_Node* curr_node, int key_to_add)
@@ -53,6 +53,12 @@ void AddNode(BST_Node* curr_node, int key_to_add)
 	}
 }
 
+
+/***********************************************************************
+* Description: Test if a Node is in BST
+* Precondition: Parameters are defined and initilized
+* Postcondition: Returns boolean. True if Node was found, false if not.
+***********************************************************************/
 bool Search(BST_Node curr_node, int key_to_find)
 {
 	if (key_to_find == curr_node.key)
@@ -73,6 +79,12 @@ bool Search(BST_Node curr_node, int key_to_find)
 	}
 }
 
+
+/***********************************************************************
+* Description: Gets the Inorder Traversal of the BST
+* Precondition: Parameters are defined and initilized. Output is long enough to account for the Traversal
+* Postcondition: output will contain a string of the traversal.
+***********************************************************************/
 void InorderTraversal(BST_Node curr_node, char* output)
 {
 	if (curr_node.left_node != 0)
@@ -92,6 +104,12 @@ void InorderTraversal(BST_Node curr_node, char* output)
 	}
 }
 
+
+/***********************************************************************
+* Description: Frees BST
+* Precondition: All Nodes are dynamically allocated (including head).
+* Postcondition: Nodes will be freed.
+***********************************************************************/
 void FreeBST(BST_Node* curr_node)
 {
 	if (curr_node->left_node != 0)

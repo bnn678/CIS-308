@@ -12,6 +12,12 @@
 #include "io.h"
 
 // IO FUNCTIONS:
+
+/***********************************************************************
+* Description: Gets a string from the user.
+* Precondition: 
+* Postcondition: output will contain a string from the user
+***********************************************************************/
 char* GetString(char* output)
 {
 	fgets(output, 4, stdin);
@@ -19,6 +25,12 @@ char* GetString(char* output)
 		fgets(output, 4, stdin);
 }
 
+
+/***********************************************************************
+* Description: Get the user's desired program state
+* Precondition: the user inputs a char representing their desired program state
+* Postcondition: the function returns a char containing the desired program state
+***********************************************************************/
 int GetProgramState()
 {
 	char state = 0;
@@ -49,6 +61,12 @@ int GetProgramState()
 	}
 }
 
+
+/***********************************************************************
+* Description: Get the user's desired insertion number
+* Precondition:	the user inputs an int respresenting their desired insertion num
+* Postcondition: the function returns an int containing the desired program state
+***********************************************************************/
 int GetInsertionNum()
 {
 	char buffer[5];
@@ -58,6 +76,12 @@ int GetInsertionNum()
 	return atoi(buffer);
 }
 
+
+/***********************************************************************
+* Description: Get the user's desired number to search for in the BST
+* Precondition: the user enter an int
+* Postcondition: the function returns the int
+***********************************************************************/
 int GetSearchNum()
 {
 	char buffer[5];
@@ -68,6 +92,12 @@ int GetSearchNum()
 	return atoi(buffer);
 }
 
+
+/***********************************************************************
+* Description: Display the result of the search
+* Precondition: 
+* Postcondition: Displays the result of the search to the Console
+***********************************************************************/
 void DisplaySearchResult(bool success, int num)
 {
 	if (success)
@@ -80,6 +110,12 @@ void DisplaySearchResult(bool success, int num)
 	}
 }
 
+
+/***********************************************************************
+* Description: Displays the transversal of the BST
+* Precondition:
+* Postcondition: Displays the transversal of the BST to the Console
+***********************************************************************/
 void DisplayTraversalString(char* traversal_string)
 {
 	printf("%s\n", traversal_string);
