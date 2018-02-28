@@ -1,2 +1,6 @@
 ﻿  proj2.c
+c:\users\brandon shaver\documents\github\cis-308\project2\project2\proj2.c(160): warning C4473: 'sprintf' : not enough arguments passed for format string
+  c:\users\brandon shaver\documents\github\cis-308\project2\project2\proj2.c(160): note: placeholders and their parameters expect 1 variadic arguments, but 0 were provided
+  c:\users\brandon shaver\documents\github\cis-308\project2\project2\proj2.c(160): note: the missing variadic argument 1 is required by format string '%d'
+c:\users\brandon shaver\documents\github\cis-308\project2\project2\proj2.c(169): warning C4172: returning address of local variable or temporary: buffer
   Project2.vcxproj -> C:\Users\Brandon Shaver\Documents\GitHub\CIS-308\Project2\Debug\Project2.exe
