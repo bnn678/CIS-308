@@ -7,7 +7,7 @@
 
 void reverse_function(char* str, char* first, int strlen, int depth)
 {
-	if (*str) {
+	if (*str != '\0') {
 		char c = *str;
 		reverse_function(str + 1, first, strlen, ++depth);
 		*(first + strlen - depth) = c;
