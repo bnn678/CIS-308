@@ -20,7 +20,7 @@ int main(int argc, const char* argv[])
 	head->item = 1;
 	head->next = node2;
 
-	Node **npp, *prevnp = NULL;
+	Node **npp;
 	int i = 1;
 
 	// for loop deletes Node with i from linked list
@@ -33,11 +33,8 @@ int main(int argc, const char* argv[])
 			{
 				head = (*npp)->next;
 			}
-			else
-				prevnp->next = (*npp)->next;
 			break;
 		}
-		prevnp = *npp;
 	}
 
 	return 0;
