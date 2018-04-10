@@ -6,11 +6,41 @@ typedef struct node {
 	struct node *next;
 } Node;
 
+void RemoveNode(Node** npp, Node* head, int i)
+{
+	for (npp = &head; (*npp) != NULL; *npp = (*npp)->next)
+	{
+		if ((*npp)->item == i) // if found
+		{
+			// remove this node
+			
+			break;
+		}
+	}
+}
+
+void InsertNode(Node** npp, Node* head, int i)
+{
+	for (npp = &head; (*npp) != NULL; *npp = (*npp)->next)
+	{
+		if ((*npp)->item < i && i < (*npp)->next->item) // if found
+		{
+			// insert next node
+			Node* new_node = malloc(sizeof(Node));
+			new_node->item = i;
+			new_node->next = (*npp)->next;
+			(*npp)->next = new_node;
+
+			break;
+		}
+	}
+}
+
 int main(int argc, const char* argv[])
 {
 	Node *node3 = malloc(sizeof(Node));
 	node3->item = 3;
-	node3->next = node3;
+	node3->next = NULL;
 
 	Node *node2 = malloc(sizeof(Node));
 	node2->item = 2;
@@ -20,22 +50,11 @@ int main(int argc, const char* argv[])
 	head->item = 1;
 	head->next = node2;
 
-	Node **npp;
-	int i = 1;
+	Node **npp = &head;
 
-	// for loop deletes Node with i from linked list
-	for (npp = &head; (*npp) != NULL; *npp = (*npp)->next)
-	{
-		if ((*npp)->item == i) // if found
-		{
-			// reset next node
-			if ((*npp) == head)
-			{
-				head = (*npp)->next;
-			}
-			break;
-		}
-	}
+	//RemoveNode(npp, head, 1);
+
+	InsertNode(npp, head, 4);
 
 	return 0;
 }
