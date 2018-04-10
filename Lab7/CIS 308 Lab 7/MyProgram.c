@@ -6,6 +6,7 @@ typedef struct node {
 	struct node *next;
 } Node;
 
+<<<<<<< HEAD
 void Delete(Node** list, Node node_to_remove)
 {
 	Node** npp;
@@ -18,11 +19,22 @@ void Delete(Node** list, Node node_to_remove)
 		{
 			// reset next node
 			last_node->next = (*npp)->next;
+=======
+void RemoveNode(Node** npp, Node* head, int i)
+{
+	for (npp = &head; (*npp) != NULL; *npp = (*npp)->next)
+	{
+		if ((*npp)->item == i) // if found
+		{
+			// remove this node
+			
+>>>>>>> 9c081f2f1b39934305cefa09875a11d02786936f
 			break;
 		}
 	}
 }
 
+<<<<<<< HEAD
 void Insert(Node** list, Node node_to_add)
 {
 	Node** npp;
@@ -35,6 +47,20 @@ void Insert(Node** list, Node node_to_add)
 		{
 			// reset next node
 			node_to_add->next = (*npp)-next;
+=======
+void InsertNode(Node** npp, Node* head, int i)
+{
+	for (npp = &head; (*npp) != NULL; *npp = (*npp)->next)
+	{
+		if ((*npp)->item < i && i < (*npp)->next->item) // if found
+		{
+			// insert next node
+			Node* new_node = malloc(sizeof(Node));
+			new_node->item = i;
+			new_node->next = (*npp)->next;
+			(*npp)->next = new_node;
+
+>>>>>>> 9c081f2f1b39934305cefa09875a11d02786936f
 			break;
 		}
 	}
@@ -44,7 +70,7 @@ int main(int argc, const char* argv[])
 {
 	Node *node3 = malloc(sizeof(Node));
 	node3->item = 3;
-	node3->next = node3;
+	node3->next = NULL;
 
 	Node *node2 = malloc(sizeof(Node));
 	node2->item = 2;
@@ -54,10 +80,18 @@ int main(int argc, const char* argv[])
 	head->item = 1;
 	head->next = node2;
 
+<<<<<<< HEAD
 	Node **list;
 	int i = 1;
 
 	
+=======
+	Node **npp = &head;
+
+	//RemoveNode(npp, head, 1);
+
+	InsertNode(npp, head, 4);
+>>>>>>> 9c081f2f1b39934305cefa09875a11d02786936f
 
 	return 0;
 }
