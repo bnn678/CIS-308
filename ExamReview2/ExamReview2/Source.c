@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 #include <stdio.h>
+=======
+>>>>>>> ed95b82cfbaa8a0e95c829fb3bc0420e31949e86
 #include <stdlib.h>
 
 // MACROS
@@ -19,6 +22,9 @@ int main()
 	printf("%d\n", MIN(3, 4));
 
 	// Pointers & Dynamic Memory
+	int i = 0;
+	int* ip = &i;
+	int** ipp = &ip;
 
 	// Linked Lists
 
