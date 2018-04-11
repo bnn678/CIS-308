@@ -115,6 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="LastTry.c" />
     <ClCompile Include="Source.c" />
   </ItemGroup>
   <ItemGroup>

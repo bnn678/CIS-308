@@ -1,3 +1,5 @@
+#include <stdlib.h>
+
 // MACROS
 #define MULTIPLY(x,y) ((x)*(y))
 
@@ -6,6 +8,9 @@
 int main()
 {
 	// Pointers & Dynamic Memory
+	int i = 0;
+	int* ip = &i;
+	int** ipp = &ip;
 
 	// Linked Lists
 
@@ -14,4 +19,7 @@ int main()
 	// Function Pointers
 
 	// Memory Allocation Strategies
+
+
+	return 0;
 }

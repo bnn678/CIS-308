@@ -1,117 +1,116 @@
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
 
-#define LENGTH(x) ((sizeof(x)/sizeof(0[x])) / ((size_t)(!(sizeof(x) % sizeof(0[x])))))
-
-#pragma warning(disable:4996)
-
-int** ReadLists(FILE* fp, int* a, int** b)
+void Swap(int* a, int* b)
 {
-	char buffer[100];
-
-	(*a) = atoi(fgets(buffer, 100, (FILE*)fp));
-	int **lists = (int **)calloc((*a) * sizeof(int *));
-
-	char* pch;
-
-	for (int i = 0; i < (*a); i++)
-	{
-		fgets(buffer, 100, (FILE*)fp);
-
-		pch = strtok(buffer, ":");
-		*(b + i) = calloc(sizeof(int*));
-		(*(*b + i)) = atoi(pch);
-
-		pch = strtok(NULL, ":");
-		lists[i] = (int *)calloc((*(*b + i)) * sizeof(int));
-
-		int c = 0;
-		for (int j = 0; j < (*(*b + i)) - 1; j++)
-		{
-			if (j == 0)
-				c = atoi(strtok(pch, ","));
-			else
-				c = atoi(strtok(NULL, ","));
-			lists[i][j] = c;
-		}
-
-		// FOR DEBUGGING
-		//for (int j = 0; j < b; j++)
-		//{
-		//	printf("%d\n", lists[i][j]);
-		//}
-	}
-
-	return lists;
+	int temp = *a;
+	*a = *b;
+	*b = temp;
 }
 
-void PrintLists(int** lists, int* a, int** b)
+void BubbleSort(int* list, int length)
 {
-	printf("%d Lists\n", *a);
-	
-	for (int i = 0; i < (*a); i++)
+	int* x = calloc(1, sizeof(int)); int* y = calloc(1, sizeof(int));
+
+	printf("%d\n", length);
+
+	for (int i = 0; i < length; i++)
 	{
-		for (int j = 0; j < (*(*b + i)); j++)
+		for (int j = i; j < length; j++)
 		{
-			printf("%d ", lists[i][j]);
-		}
-		printf("\n");
-	}
-}
-
-int** SortFirstDimension(int** lists, int* a, int** b1, int** b2)
-{
-	int** sorted_lists = (int **)calloc((*a) * sizeof(int *));
-
-	for (int i = 0; i < (*a); i++)
-	{
-		b2[i] = (int*)calloc(sizeof(int*));
-	}
-
-	int current_min = 100; int last_min = -1;
-	int* smallest_array = 0;
-	for (int i = 0; i < (*a); i++)
-	{
-		for (int j = 0; j < (*a); j++)
-		{
-			printf("%d ", *(b1[j]));
-			/*
-			if (b1[j] < current_min)
+			if (list[i] > list[j])
 			{
-				current_min = b1[j];
+				x = &(list[i]);
+				y = &(list[j]);
+				Swap(x, y);
 			}
+		}
+	}
+}
 
-			b2[i] = current_min;
-			*/
+int* SmallestList(int** lists, int elements, int* lengths)
+{
+	int current_min = 1000; // arbitartily large random num
+	int min_index = -1;
+
+	for (int i = 0; i < elements; i++)
+	{
+		if (lengths[i] < current_min)
+		{
+			current_min = lengths[i];
+			min_index = i;
 		}
 	}
 
-	return lists;
+	return lists[min_index];
 }
 
-void SortSecondDimension(int** lists)
+int** SortedLists(int** lists, int elements, int* lengths)
 {
+	int** sorted_lists = calloc(elements, sizeof(int*));
 
+	int* current_smallest_list = calloc(1, sizeof(int*));
+	for (int i = 0; i < elements; i++)
+	{
+		current_smallest_list = SmallestList(lists, elements, lengths);
+
+		sorted_lists[i] = &current_smallest_list;
+	}
 }
 
 int main()
 {
-	FILE *fp = fopen("list.txt", "r");
-	int* a = calloc(sizeof(int*));
-	int** b1 = calloc(sizeof(int**));
-	int** lists = ReadLists(fp, a, b1);
+	/**
+	// EXAMPLE Swap CALL
 
-	PrintLists(lists, a, b1);
+	int* x = calloc(1, sizeof(int)); int* y = calloc(1, sizeof(int));
+	int a = 2; int b = 4;
+	x = &a; y = &b;
+	Swap(x, y);
+	printf("\n%d %d\n", a, b);
+	*/
 
-	int** b2 = calloc(sizeof(int**));
-	int** sorted_lists = SortFirstDimension(lists, a, b1, b2);
+	/**
+	// EXAMPLE BubbleSort CALL
 
-	printf("%d", *(b1[1]));
+	int* my_list = calloc(4, sizeof(int));
+	my_list[0] = 1;
+	my_list[1] = 4;
+	my_list[2] = 2;
+	my_list[3] = 0;
+	BubbleSort(my_list, 4);
 
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 4; i++)
 	{
-		printf("\n%d", *(b2[i]));
+		printf("%d ", my_list[i]);
 	}
+	*/
+
+	/**
+	// EXAMPLE SmallestList CALL
 	
-	//PrintLists(lists, a, b2);
+	int** lists = calloc(4, sizeof(int*));
+
+	int kewl[] = { 1,2 };
+	int kewl2[] = { 2,3,5,7 };
+	int kewl3[] = { 3,3,4 };
+	int kewl4[] = { 4 };
+
+	lists[0] = &kewl;
+	lists[1] = &kewl2;
+	lists[2] = &kewl3;
+	lists[3] = &kewl4;
+
+	int lengths[] = { 2,4,3,1 };
+
+	for (int i = 0; i < 4; i++)
+	{
+		printf("%d\n", lists[i][0]);
+	}
+
+	int* smallest_list = SmallestList(lists, 4, lengths);
+	printf("%d\n", smallest_list[0]);
+	*/
+
+	return 0;
 }
