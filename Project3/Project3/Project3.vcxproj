@@ -117,6 +117,7 @@
   <ItemGroup>
     <ClCompile Include="LastTry.c" />
     <ClCompile Include="Source.c" />
+    <ClCompile Include="TestCases.c" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="list.txt" />

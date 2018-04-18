@@ -21,6 +21,9 @@
     <ClCompile Include="LastTry.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TestCases.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="list.txt">

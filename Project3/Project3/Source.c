@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#pragma warning(disable:4996)
+
 void Swap(int* a, int* b)
 {
 	int temp = *a;
@@ -10,9 +12,7 @@ void Swap(int* a, int* b)
 
 void BubbleSort(int* list, int length)
 {
-	int* x = calloc(1, sizeof(int)); int* y = calloc(1, sizeof(int));
-
-	printf("%d\n", length);
+	int* x; int* y;
 
 	for (int i = 0; i < length; i++)
 	{
@@ -28,89 +28,150 @@ void BubbleSort(int* list, int length)
 	}
 }
 
-int* SmallestList(int** lists, int elements, int* lengths)
+void DisplayLists(int** lists, int elements, int* lengths)
 {
-	int current_min = 1000; // arbitartily large random num
-	int min_index = -1;
+	printf("%d Lists: \n", elements);
+	for (int i = 0; i < elements; i++)
+	{
+		for (int j = 0; j < lengths[i]; j++)
+		{
+			printf("%d, ", lists[i][j]);
+		}
+		printf("\n");
+	}
+}
+
+int* GetOrderedIndexes(int elements, int lengths[])
+{
+	int* ordered_indexes = calloc(elements, sizeof(int));
+
+	int last_min = -1;
+	int current_min;
+	int current_min_index;
 
 	for (int i = 0; i < elements; i++)
 	{
-		if (lengths[i] < current_min)
+		current_min = 1000; // arbitartily large value
+		for (int j = 0; j < elements; j++)
 		{
-			current_min = lengths[i];
-			min_index = i;
+			if (last_min < lengths[j] && lengths[j] < current_min)
+			{
+				current_min = lengths[j];
+				current_min_index = j;
+			}
 		}
+		ordered_indexes[i] = current_min_index;
+		last_min = current_min;
 	}
 
-	return lists[min_index];
+	return ordered_indexes;
 }
 
-int** SortedLists(int** lists, int elements, int* lengths)
+int* GetOrderedLengths(int elements, int lengths[], int ordered_indexes[])
+{
+	int* ordered_lengths = calloc(elements, sizeof(int));
+
+	for (int i = 0; i < elements; i++)
+	{
+		ordered_lengths[i] = lengths[ordered_indexes[i]];
+	}
+
+	return ordered_lengths;
+}
+
+int** SortedLists(int** lists, int elements, int* ordered_indexes)
 {
 	int** sorted_lists = calloc(elements, sizeof(int*));
 
-	int* current_smallest_list = calloc(1, sizeof(int*));
 	for (int i = 0; i < elements; i++)
 	{
-		current_smallest_list = SmallestList(lists, elements, lengths);
-
-		sorted_lists[i] = &current_smallest_list;
+		sorted_lists[i] = lists[ordered_indexes[i]];
 	}
+
+	return sorted_lists;
 }
 
-int main()
+int ReadElements(FILE* fp)
 {
-	/**
-	// EXAMPLE Swap CALL
+	char buffer[100];
+	int elements = atoi(fgets(buffer, 100, (FILE*)fp)); // Read number of lists (i.e. elements)
 
-	int* x = calloc(1, sizeof(int)); int* y = calloc(1, sizeof(int));
-	int a = 2; int b = 4;
-	x = &a; y = &b;
-	Swap(x, y);
-	printf("\n%d %d\n", a, b);
-	*/
+	return elements;
+}
 
-	/**
-	// EXAMPLE BubbleSort CALL
+void ReadLists(FILE* fp, int elements, int* lengths, int** lists)
+{
+	char buffer[100];
+	char* pch;
 
-	int* my_list = calloc(4, sizeof(int));
-	my_list[0] = 1;
-	my_list[1] = 4;
-	my_list[2] = 2;
-	my_list[3] = 0;
-	BubbleSort(my_list, 4);
-
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < elements; i++) // Main Read Loop
 	{
-		printf("%d ", my_list[i]);
-	}
-	*/
+		fgets(buffer, 100, (FILE*)fp); // Get 1 line
 
-	/**
-	// EXAMPLE SmallestList CALL
+		pch = strtok(buffer, ":"); // Read and Parse length
+		lengths[i] = atoi(pch);
+
+		pch = strtok(NULL, ":"); // Read the rest of the line
+
+		lists[i] = calloc(lengths[i], sizeof(int)); // Allocate lists[i]
+		
+		int c = 0;
+		for (int j = 0; j < lengths[i]; j++) // Populate lists[i]
+		{
+			if (j == 0)
+				c = atoi(strtok(pch, ",\n"));
+			else
+				c = atoi(strtok(NULL, ",\n"));
+
+			lists[i][j] = c;
+		}
+		
+	}
+
+	return lists;
+}
+
+int main(int argc, char* argv)
+{
+	FILE* fp;
+	if (argc == 1)
+	{
+		fp = fopen(argv[0], "r");
+	}
+	else
+	{
+		fp = fopen("list.txt", "r");
+	}
+
+	int elements = ReadElements(fp);
+	int* lengths = calloc(elements, sizeof(int));
+	int** lists = calloc(elements, sizeof(int*));
+
+	ReadLists(fp, elements, lengths, lists);
+
+	int* ordered_indexes = GetOrderedIndexes(elements, lengths);
+	int* ordered_lengths = GetOrderedLengths(elements, lengths, ordered_indexes);
 	
-	int** lists = calloc(4, sizeof(int*));
+	int** sorted_lists = SortedLists(lists, elements, ordered_indexes);
 
-	int kewl[] = { 1,2 };
-	int kewl2[] = { 2,3,5,7 };
-	int kewl3[] = { 3,3,4 };
-	int kewl4[] = { 4 };
-
-	lists[0] = &kewl;
-	lists[1] = &kewl2;
-	lists[2] = &kewl3;
-	lists[3] = &kewl4;
-
-	int lengths[] = { 2,4,3,1 };
-
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < elements; i++)
 	{
-		printf("%d\n", lists[i][0]);
+		BubbleSort(sorted_lists[i], ordered_lengths[i]);
 	}
 
-	int* smallest_list = SmallestList(lists, 4, lengths);
-	printf("%d\n", smallest_list[0]);
-	*/
+	DisplayLists(sorted_lists, elements, ordered_lengths);
 
+
+	// Free Stuff
+	free(lengths);
+	free(ordered_indexes);
+	free(ordered_lengths);
+	for (int i = 0; i < elements; i++)
+	{
+		free(lists[i]);
+	}
+	free(lists);
+	free(sorted_lists);
+	
 	return 0;
 }
