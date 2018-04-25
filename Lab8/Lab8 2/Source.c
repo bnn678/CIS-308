@@ -9,7 +9,7 @@
 int main(int argc, const char* argv[])
 {
 	Person* PersonObj = new_Person("Alice", "Sun");
-	Person* EmployeeObj = new_Employee("Bob", "Smith", "HR", "TCS", 40000);
+	Employee* EmployeeObj = new_Employee("Bob", "Smith", "HR", "TCS", 40000);
 
 	// accessing person object
 

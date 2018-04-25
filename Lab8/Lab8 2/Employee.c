@@ -4,20 +4,23 @@
 #include <string.h>
 #pragma warning(disable : 4996)
 
-Person* new_Employee(const char* const pFirstName, const char* const pLastName, const char* const pDepartment, const char* const pCompany, int nSalary)
+Employee* new_Employee(const char* const pFirstName, const char* const pLastName, const char* const pDepartment, const char* const pCompany, int nSalary)
 {
 	Person* pObj = NULL;
-	Employee* eObj = NULL;
 
 	pObj = new_Person(pFirstName, pLastName);
 	if (pObj == NULL)
 	{
 		return NULL;
 	}
+	pObj->pDeriveObj = (Employee*)pObj;
 
+	Employee* eObj = NULL;
 	eObj = (Employee*)malloc(sizeof(Employee));
-
-	pObj->pDeriveObj = (Employee*)eObj;
+	if (eObj == NULL)
+	{
+		return NULL;
+	}
 
 	eObj->pCompany = malloc(sizeof(char) * (strlen(pCompany) + 1));
 	if (eObj->pCompany == NULL)
@@ -39,12 +42,14 @@ Person* new_Employee(const char* const pFirstName, const char* const pLastName, 
 		return NULL;
 	}
 	eObj->nSalary = nSalary;
-	eObj->pBaseObj = pObj;
-	pObj->Delete = delete_Person;
-	pObj->Display = Person_DisplayInfo;
-	pObj->WriteToFile = Person_WriteToFile;
 
-	return pObj;
+	eObj->pBaseObj = pObj;
+
+	eObj->Delete = delete_Person;
+	eObj->Display = Person_DisplayInfo;
+	eObj->WriteToFile = Person_WriteToFile;
+
+	return eObj;
 }
 
 void delete_Employee(Person* const pPersonObj)
