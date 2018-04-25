@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include "Person.h"
 
+#pragma once
+
 typedef struct _Employee
 {
 	Person* pBaseObj;

@@ -2,6 +2,10 @@
 #include "Person.h"
 #include "Employee.h"
 
+#pragma warning(disable:4996)
+
+// What separtes OOP from Imperative if we can simulate both using any language?
+
 int main(int argc, const char* argv[])
 {
 	Person* PersonObj = new_Person("Alice", "Sun");
