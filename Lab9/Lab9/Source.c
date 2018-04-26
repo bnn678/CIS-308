@@ -1,12 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
-
 #include "Shape.h"
 #include "Square.h"
 #include "Triangle.h"
 
-int main() {
+#include <stdio.h>
 
+int main() {
+	/**
 	double area = 0.0;
 
 	double perim = 0.0;
@@ -34,9 +33,12 @@ int main() {
 	perim = myTriangle->perimeter(myTriangle);
 
 	printf("The perimeter of the Triangle is: %f\n", perim);
+	*/
 
-
+	Square* mySquare = new_Square(4);
+	int length = mySquare->length;
+	printf("%d\n", mySquare->Area(length));
+	printf("%d\n", mySquare->Perimeter(length));
 
 	return 0;
-
 }

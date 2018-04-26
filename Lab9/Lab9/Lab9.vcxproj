@@ -115,7 +115,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Shape.c" />
     <ClCompile Include="Source.c" />
+    <ClCompile Include="Square.c" />
+    <ClCompile Include="Triangle.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Shape.h" />
+    <ClInclude Include="Square.h" />
+    <ClInclude Include="Triangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
