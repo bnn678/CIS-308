@@ -4,19 +4,16 @@
 		It will also implement the constructor Shape* New_Square()
 */
 
-typedef void(*fptrArea)(int);
-typedef void(*fptrPerimeter)(int);
+#include "Shape.h"
 
 typedef struct _Square
 {
-	int length;
-
-	fptrArea Area;
-	fptrPerimeter Perimeter;
+	Shape* shapeBaseObj;
+	double length;
 } Square;
 
-Square* new_Square(int length);
+Shape* New_Square(double);
 
-int get_Area(length);
+double getSquareArea(Shape*);
 
-int get_Perimeter(length);
+double getSquarePerimeter(Shape*);
